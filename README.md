@@ -8,7 +8,7 @@ a private Cloudsmith repository.
 The only required input, `token`, is the *secret* for an entitlement token
 with read access to the repo you're using.
 
-```
+```yaml
     - uses: netlify/cloudsmith-cargo-action@v1
       with:
         token: ${{ secrets.CLOUDSMITH_TOKEN }}
