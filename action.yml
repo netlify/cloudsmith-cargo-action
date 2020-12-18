@@ -1,0 +1,14 @@
+name: "Cloudsmith Cargo Setup"
+description: "Sets up credentials for using a private Cloudsmith crate repository"
+inputs:
+  token:
+    description: "The secret for an entitlement token that has read access to the Cloudsmith repository"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: "Set up Git credential helper and add Cloudsmith credentials"
+      run: |
+        git config --global credential.helper store
+        echo "https://token:${{ inputs.token }}@dl.cloudsmith.io" > ~/.git-credentials
+      shell: bash
